@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Vollkorn:wght@500;700&display=swap');
+
+/* Fonts */
+/* font-family: 'Open Sans', sans-serif; --Normal (400, 500)
+font-family: 'Vollkorn', serif; --Logo (500, 600) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #1363df;
+  --red: #ff869e;
+  --black: #1b2430;
+  --gray: #eeeeee;
+  --green: #5bb318;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--black);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--blue);
+}
