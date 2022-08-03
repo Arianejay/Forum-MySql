@@ -44,6 +44,7 @@ const Ask = ({ user }) => {
         <textarea
           placeholder="Question..."
           spellCheck="false"
+          maxLength={5000}
           onChange={(e) => setQuestion(e.target.value)}
         />
       </div>
