@@ -1,0 +1,69 @@
+.ask__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  text-align: center;
+  padding: 0 5rem;
+}
+
+/* Header */
+.ask__header {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-family: 'Vollkorn', serif;
+  font-weight: 500;
+  border-bottom: 1.5px solid var(--gray);
+}
+
+/* Input */
+.ask__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ask__input input {
+  font-size: 1.2rem;
+  height: 2rem;
+  width: 50%;
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid var(--gray);
+}
+.ask__input input::placeholder,
+.ask__input textarea::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  opacity: 0.5;
+}
+.ask__input textarea {
+  resize: none;
+  margin-top: 2rem;
+  width: 100%;
+  height: 50vh;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--gray);
+  outline: none;
+}
+
+/* Button */
+.ask__button button {
+  margin: 2rem 0;
+  height: 2rem;
+  width: 5rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background: var(--blue);
+  font-size: 0.9rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+.ask__button button:active {
+  transform: scale(0.97);
+}

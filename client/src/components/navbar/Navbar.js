@@ -28,7 +28,9 @@ const Navbar = ({ user }) => {
             <Link to="/" className="link">
               <li>Home</li>
             </Link>
-            <li>Ask</li>
+            <Link to="/ask" className="link">
+              <li>Ask</li>
+            </Link>
             <li>About</li>
           </ul>
         </div>

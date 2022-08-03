@@ -19,9 +19,10 @@ const validateToken = (req, res, next) => {
 
   //If there is, we verify
   try {
-    const validToken = verify(accessToken, process.env.SECRET_TOKEN)
+    const validateToken = verify(accessToken, process.env.SECRET_TOKEN)
+    req.user = validateToken
 
-    if (validToken) {
+    if (validateToken) {
       req.authenticated = true
       return next()
     }
