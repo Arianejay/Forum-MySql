@@ -22,4 +22,12 @@ const GetQuestion = async (req, res) => {
   return res.send(listQuestion)
 }
 
-module.exports = { PostQuestion, GetQuestion }
+const GetQuestionById = async (req, res) => {
+  const id = req.params.id
+
+  // Find by PrimaryKey (Pk)
+  const post = await Posts.findByPk(id)
+  return res.send(post)
+}
+
+module.exports = { PostQuestion, GetQuestion, GetQuestionById }

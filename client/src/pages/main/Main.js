@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Ask from '../ask/Ask'
 import Home from '../home/Home'
 import Login from '../login/Login'
+import Question from '../question/Question'
 import Register from '../register/Register'
 
 const Main = ({ user }) => {
@@ -15,6 +16,7 @@ const Main = ({ user }) => {
         <Route path="/login" element={<Login />} exact />
         <Route path="/register" element={<Register />} exact />
         <Route path="/ask" element={<Ask user={user} />} exact />
+        <Route path="/question/:id" element={<Question user={user} />} exact />
       </Routes>
     </div>
   )

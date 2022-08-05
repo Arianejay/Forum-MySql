@@ -19,3 +19,5 @@ function App() {
 }
 
 export default App
+
+//TODO: Fix the logout bug, together with other buttons in relation to user

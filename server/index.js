@@ -17,9 +17,13 @@ app.use(cookieParser())
 // Routers
 const UsersRouter = require('./routes/Users.js')
 const PostsRouter = require('./routes/Posts.js')
+const CommentsRouter = require('./routes/Comments.js')
+const LikesRouter = require('./routes/Likes.js')
 
 app.use('/auth', UsersRouter)
 app.use('/post', PostsRouter)
+app.use('/comment', CommentsRouter)
+app.use('/like', LikesRouter)
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {

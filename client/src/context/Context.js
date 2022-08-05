@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 
 const INITIAL_STATE = {
-  user: cookies.get('access-token') || null,
+  user: cookies.get('access-token') || '',
   isFetching: false,
   error: false,
 }

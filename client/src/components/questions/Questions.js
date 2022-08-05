@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './questions.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Questions = () => {
   //useState
   const [listQuestion, setListQuestion] = useState([])
 
-  // We get the length if list
+  //useNavigate
+  let navigate = useNavigate()
+
+  //We get the length of list &
   const questionLength = listQuestion.length
 
   //useEffect ~~ fetch data from the backend
@@ -27,7 +31,10 @@ const Questions = () => {
       {/* Card */}
       {listQuestion.map((list) => (
         <div key={list.id}>
-          <div className="question__card">
+          <div
+            className="question__card"
+            onClick={() => navigate(`/question/${list.id}`)}
+          >
             <div className="question__card--data">
               <p>0 votes</p>
               <p>1 answers</p>
