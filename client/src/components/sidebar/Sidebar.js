@@ -1,11 +1,14 @@
 import { useContext } from 'react'
 import './sidebar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Context } from '../../context/Context'
 
 const Sidebar = ({ user }) => {
   // useContext
   const { dispatch } = useContext(Context)
+
+  //useNavigate
+  let navigate = useNavigate()
 
   // Logout Function
   const handleLogout = () => {
@@ -18,8 +21,12 @@ const Sidebar = ({ user }) => {
           <Link to="/" className="link">
             <li>Home</li>
           </Link>
-          <li>Ask</li>
-          <li>About</li>
+          <Link to="/ask" className="link">
+            <li>Ask</li>
+          </Link>
+          <Link to="/about" className="link">
+            <li>About</li>
+          </Link>
         </ul>
       </div>
       <div className="sidebar__buttons">
@@ -33,7 +40,10 @@ const Sidebar = ({ user }) => {
             </Link>
           </>
         ) : (
-          <button onClick={handleLogout}>Logout</button>
+          <>
+            <button onClick={() => navigate('/profile')}>Profile</button>
+            <button onClick={handleLogout}>Logout</button>
+          </>
         )}
       </div>
     </div>

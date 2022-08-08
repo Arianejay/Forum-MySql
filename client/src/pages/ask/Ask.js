@@ -16,19 +16,24 @@ const Ask = ({ user }) => {
   const cookies = new Cookies()
 
   //Submit Function
-  const handleSubmit = () => {
-    //Send data to the backend
-    axios
-      .post(
-        'http://localhost:3001/post',
-        { title, question, username: user.username, UserId: user.id },
-        {
-          cookies: { accessToken: cookies.get('access-token') },
-        },
-      )
-      .then(() => {
-        navigate('/')
-      })
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      //Send data to the backend
+      await axios
+        .post(
+          'http://localhost:3001/post',
+          { title, question, username: user.username, UserId: user.id },
+          {
+            cookies: { accessToken: cookies.get('access-token') },
+          },
+        )
+        .then(() => {
+          navigate('/')
+        })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (

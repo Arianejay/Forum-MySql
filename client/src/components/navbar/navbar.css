@@ -56,13 +56,16 @@
   display: flex;
   align-items: center;
 }
+.navbar__username p {
+  cursor: pointer;
+}
 .navbar__username p::first-letter {
   text-transform: capitalize;
 }
 
 /* Hamburger Icon, Dropdown Sidebar */
 .navbar__hamburger,
-.dropwdown {
+.dropdown {
   display: none;
 }
 
@@ -92,5 +95,10 @@
   /* Username */
   .navbar__username {
     display: none;
+  }
+
+  /* Dropdown */
+  .dropdown {
+    display: flex;
   }
 }

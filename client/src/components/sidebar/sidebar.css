@@ -8,6 +8,7 @@
   width: 100vw;
   color: #fff;
   background: var(--black);
+  z-index: 2;
 }
 
 /* Links */

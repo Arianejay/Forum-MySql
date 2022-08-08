@@ -51,40 +51,52 @@ const Question = ({ user }) => {
   }, [objectQuestion, listComments])
 
   // Send Comment value to the backend
-  const handleSubmitComment = () => {
-    axios.post(
-      'http://localhost:3001/comment',
-      {
-        commentText: comment,
-        PostId: id,
-        username: user.username,
-      },
-      {
-        cookies: { accessToken: cookies.get('access-token') },
-      },
-    )
-    setComment('')
+  const handleSubmitComment = async () => {
+    try {
+      await axios.post(
+        'http://localhost:3001/comment',
+        {
+          commentText: comment,
+          PostId: id,
+          username: user.username,
+        },
+        {
+          cookies: { accessToken: cookies.get('access-token') },
+        },
+      )
+      setComment('')
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   // Delete comment by user
-  const handleDeleteComment = (postId) => {
-    axios.delete(`http://localhost:3001/comment/${postId}`, {
-      cookies: { accessToken: cookies.get('access-token') },
-    })
+  const handleDeleteComment = async (postId) => {
+    try {
+      await axios.delete(`http://localhost:3001/comment/${postId}`, {
+        cookies: { accessToken: cookies.get('access-token') },
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   //Upvote or like post
-  const handleUpvotePost = () => {
-    axios.post(
-      'http://localhost:3001/like',
-      {
-        UserId: user.id,
-        PostId: id,
-      },
-      {
-        cookies: { accessToken: cookies.get('access-token') },
-      },
-    )
+  const handleUpvotePost = async () => {
+    try {
+      await axios.post(
+        'http://localhost:3001/like',
+        {
+          UserId: user.id,
+          PostId: id,
+        },
+        {
+          cookies: { accessToken: cookies.get('access-token') },
+        },
+      )
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (

@@ -26,9 +26,9 @@ const Edit = () => {
   }, [data])
 
   //Post update
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     try {
-      axios
+      await axios
         .put(
           `http://localhost:3001/post/${id}`,
           {

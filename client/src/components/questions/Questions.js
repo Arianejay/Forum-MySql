@@ -31,9 +31,9 @@ const Questions = ({ user }) => {
   }, [listQuestion])
 
   //Delete Post/Question
-  const handleDeleteQuestion = (id) => {
+  const handleDeleteQuestion = async (id) => {
     try {
-      axios
+      await axios
         .delete(`http://localhost:3001/post/${id}`, {
           cookies: { accessToken: cookies.get('access-token') },
         })

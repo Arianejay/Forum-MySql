@@ -11,31 +11,45 @@ const PostQuestion =
   (validateToken,
   async (req, res) => {
     const post = req.body
-
-    await Posts.create(post)
-    return res.send(post)
+    try {
+      await Posts.create(post)
+      return res.send(post)
+    } catch (err) {
+      return res.send(err)
+    }
   })
 
 const GetQuestion = async (req, res) => {
-  //Includes the Likes in the Posts array data
-  const listQuestion = await Posts.findAll({ include: [Likes] })
-  return res.send(listQuestion)
+  try {
+    //Includes the Likes in the Posts array data
+    const listQuestion = await Posts.findAll({ include: [Likes] })
+    return res.send(listQuestion)
+  } catch (err) {
+    return res.send(err)
+  }
 }
 
 const GetQuestionById = async (req, res) => {
   const id = req.params.id //PostId
-
-  // Find by PrimaryKey (Pk)
-  const post = await Posts.findByPk(id)
-  return res.send(post)
+  try {
+    // Find by PrimaryKey (Pk)
+    const post = await Posts.findByPk(id)
+    return res.send(post)
+  } catch (err) {
+    return res.send(err)
+  }
 }
 
 const DeleteQuestion =
   (validateToken,
   async (req, res) => {
     const id = req.params.id //PostId
-    await Posts.destroy({ where: { id } })
-    return res.send('Deleted!')
+    try {
+      await Posts.destroy({ where: { id } })
+      return res.send('Deleted!')
+    } catch (err) {
+      return res.send(err)
+    }
   })
 
 const UpdateQuestion =
@@ -43,8 +57,12 @@ const UpdateQuestion =
   async (req, res) => {
     const { title, question } = req.body
     const { id } = req.params
-    await Posts.update({ title, question }, { where: { id } })
-    return res.send('Updated!')
+    try {
+      await Posts.update({ title, question }, { where: { id } })
+      return res.send('Updated!')
+    } catch (err) {
+      return res.send(err)
+    }
   })
 
 module.exports = {

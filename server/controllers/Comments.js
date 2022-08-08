@@ -11,23 +11,34 @@ const PostComment =
   (validateToken,
   async (req, res) => {
     const comment = req.body
-
-    await Comments.create(comment)
-    return res.send(comment)
+    try {
+      await Comments.create(comment)
+      return res.send(comment)
+    } catch (err) {
+      return res.send(err)
+    }
   })
 
 const GetComment = async (req, res) => {
   const postId = req.params.postId
-  const comments = await Comments.findAll({ where: { PostId: postId } })
-  return res.send(comments)
+  try {
+    const comments = await Comments.findAll({ where: { PostId: postId } })
+    return res.send(comments)
+  } catch (err) {
+    return res.send(err)
+  }
 }
 
 const DeleteComment =
   (validateToken,
   async (req, res) => {
     const commentId = req.params.commentId
-    await Comments.destroy({ where: { id: commentId } })
-    return res.send('Comment Deleted.')
+    try {
+      await Comments.destroy({ where: { id: commentId } })
+      return res.send('Comment Deleted.')
+    } catch (err) {
+      return res.send(err)
+    }
   })
 
 module.exports = { PostComment, GetComment, DeleteComment }

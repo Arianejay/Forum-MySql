@@ -31,7 +31,9 @@ const Navbar = ({ user }) => {
             <Link to="/ask" className="link">
               <li>Ask</li>
             </Link>
-            <li>About</li>
+            <Link to="/about" className="link">
+              <li>About</li>
+            </Link>
           </ul>
         </div>
         {!user ? (
@@ -45,7 +47,9 @@ const Navbar = ({ user }) => {
           </div>
         ) : (
           <div className="navbar__username">
-            <p>{user.username}</p>
+            <Link to="/profile" className="link">
+              <p>{user.username}</p>
+            </Link>
             <button onClick={handleLogout}>Logout</button>
           </div>
         )}

@@ -13,8 +13,8 @@ const {
 
 // Controllers
 const PostRegister = async (req, res) => {
+  const { username, password } = req.body
   try {
-    const { username, password } = req.body
     const user = await Users.findOne({ where: { username } })
 
     if (user) {
@@ -28,16 +28,16 @@ const PostRegister = async (req, res) => {
         return res.send('Registered')
       })
     } catch (err) {
-      return res.send({ error: err })
+      return res.send(err)
     }
   } catch (err) {
-    return res.send({ error: err })
+    return res.send(err)
   }
 }
 
 const PostLogin = async (req, res) => {
+  const { username, password } = req.body
   try {
-    const { username, password } = req.body
     const user = await Users.findOne({ where: { username } })
 
     // Check if there is username
@@ -65,7 +65,7 @@ const PostLogin = async (req, res) => {
       }
     })
   } catch (err) {
-    return res.send({ error: err })
+    return res.send(err)
   }
 }
 
