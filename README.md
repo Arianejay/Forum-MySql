@@ -1,6 +1,8 @@
 # Ask-it-React-MySQL
 Ask It is a CRUD app, built with React Js and MySQL as its database.
 
+Demo here:
+
 Functionalities: 
   - Login and Register
   - View questions even when you are not logged in
@@ -24,6 +26,7 @@ Client Side:
   - formik 
   - hamburger-react
   - react-router-dom
+  - react-icons
   - react-toastify
   - universal-cookie
   - yup
