@@ -1,5 +1,5 @@
 # Ask-it-React-MySQL
-Ask It is a CRUD app, built with React Js and MySQL as its database.
+Ask It is a Forum CRUD app, built with React Js and MySQL as its database.
 
 Demo here:
 
