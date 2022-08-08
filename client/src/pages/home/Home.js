@@ -1,11 +1,11 @@
 import React from 'react'
 import Questions from '../../components/questions/Questions'
 
-const Home = () => {
+const Home = ({ user }) => {
   return (
     <div className="home__wrapper">
       <div className="home__content">
-        <Questions />
+        <Questions user={user} />
       </div>
     </div>
   )

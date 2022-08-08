@@ -6,11 +6,15 @@ const {
   PostQuestion,
   GetQuestion,
   GetQuestionById,
+  DeleteQuestion,
+  UpdateQuestion,
 } = require('../controllers/Posts.js')
 
 // Routers
 router.post('/', PostQuestion)
 router.get('/', GetQuestion)
 router.get('/:id', GetQuestionById)
+router.delete('/:id', DeleteQuestion)
+router.put('/:id', UpdateQuestion)
 
 module.exports = router

@@ -12,6 +12,7 @@ const Question = ({ user }) => {
   const [comment, setComment] = useState('')
   const [listComments, setListComments] = useState([])
   const [listLikes, setListLikes] = useState([])
+  // const [like, setLike] = useState(false)
 
   //We get the length of comments list
   const commentLength = listComments.length
@@ -25,29 +26,29 @@ const Question = ({ user }) => {
   //useEffect ~~ fetch the data from the backend by id
   useEffect(() => {
     // Get Questions
-    axios
-      .get(`http://localhost:3001/post/${id}`, {
-        cookies: { accessToken: cookies.get('access-token') },
-      })
-      .then((response) => {
-        setObjectQuestion(response.data)
-      })
+    axios.get(`http://localhost:3001/post/${id}`).then((response) => {
+      setObjectQuestion(response.data)
+    })
 
     // Get Comments
     axios.get(`http://localhost:3001/comment/${id}`).then((response) => {
       setListComments(response.data)
     })
 
-    //Get Likes List
-    axios
-      .get('http://localhost:3001/like', {
-        PostId: id,
-      })
-      .then((response) => {
-        setListLikes(response.data)
-        console.log(listLikes)
-      })
-  }, [objectQuestion])
+    //Get Likes by PostId
+    axios.get(`http://localhost:3001/like/${id}`).then((response) => {
+      setListLikes(response.data)
+    })
+
+    //Get Likes by UserId
+    // axios.get(`http://localhost:3001/like/user/${user.id}`).then((response) => {
+    //   if (response.data.length !== 0) {
+    //     setLike(true)
+    //   } else {
+    //     setLike(false)
+    //   }
+    // })
+  }, [objectQuestion, listComments])
 
   // Send Comment value to the backend
   const handleSubmitComment = () => {
@@ -106,7 +107,11 @@ const Question = ({ user }) => {
       {/* Body */}
       <div className="question__body">
         <div className="question__body--icon">
-          <BiUpvote className="biUpvote" onClick={handleUpvotePost} />
+          <BiUpvote
+            className="biUpvote"
+            // style={like ? { color: '#5bb318' } : { color: '#1b2430' }}
+            onClick={handleUpvotePost}
+          />
           <p>{listLikes.length}</p>
         </div>
         <div className="question__body--content">

@@ -21,7 +21,7 @@ const Ask = ({ user }) => {
     axios
       .post(
         'http://localhost:3001/post',
-        { title, question, username: user.username },
+        { title, question, username: user.username, UserId: user.id },
         {
           cookies: { accessToken: cookies.get('access-token') },
         },

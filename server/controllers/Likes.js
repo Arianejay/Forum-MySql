@@ -27,10 +27,15 @@ const PostLike =
   })
 
 const GetLikes = async (req, res) => {
-  const { PostId } = req.body
-  const likesList = await Likes.findAll({ where: { PostId } })
-
-  return res.send(likesList)
+  const PostId = req.params.PostId
+  const likeList = await Likes.findAll({ where: { PostId } })
+  return res.send(likeList)
 }
 
-module.exports = { PostLike, GetLikes }
+const GetLikesByUser = async (req, res) => {
+  const UserId = req.params.UserId
+  const likeList = await Likes.findAll({ where: { UserId } })
+  return res.send(likeList)
+}
+
+module.exports = { PostLike, GetLikes, GetLikesByUser }

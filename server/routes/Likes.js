@@ -2,10 +2,15 @@ const express = require('express')
 const router = express.Router()
 
 //From Controllers
-const { PostLike, GetLikes } = require('../controllers/Likes.js')
+const {
+  PostLike,
+  GetLikes,
+  GetLikesByUser,
+} = require('../controllers/Likes.js')
 
 //Routers
 router.post('/', PostLike)
-router.get('/', GetLikes)
+router.get('/:PostId', GetLikes)
+router.get('/user/:UserId', GetLikesByUser)
 
 module.exports = router

@@ -96,7 +96,8 @@
   color: var(--blue);
   margin-right: 0.5rem;
 }
-.bsTrash {
+.bsTrash,
+.FiEdit {
   color: var(--red);
   height: 100%;
   text-align: center;
@@ -107,6 +108,9 @@
 }
 .bsTrash:active {
   transform: scale(0.9);
+}
+.FiEdit {
+  color: var(--green);
 }
 
 /* Comment */
