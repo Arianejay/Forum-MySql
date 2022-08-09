@@ -18,6 +18,7 @@ Pages:
   - Write Question 
   - Edit Question
   - About
+  - Profile
 
 Dependencies: 
 
