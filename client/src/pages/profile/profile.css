@@ -38,7 +38,7 @@
   transform: scale(0.97);
 }
 
-/* Body */
+/* Posts/Questions */
 .profile__card {
   display: flex;
   flex-direction: row;
@@ -56,6 +56,7 @@
 .profile__card--title h1 {
   font-size: 1.2rem;
   font-weight: 600;
+  cursor: pointer;
 }
 .profile__card--title::first-letter,
 .profile__card--body::first-letter {
@@ -81,9 +82,47 @@
   display: flex;
   flex-direction: row;
 }
-.profile__footer--timestamp p {
+.profile__footer--timestamp p,
+.question__answer--timestamp p {
   margin-right: 1rem;
 }
-.profile__footer--timestamp span {
+.profile__footer--timestamp span,
+.question__answer--timestamp span {
   font-weight: 600;
+}
+
+/* Comments */
+.question__answer--wrapper {
+  margin-top: 2rem;
+}
+.question__answer--header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.question__answer--card {
+  border-bottom: 1.5px solid var(--gray);
+  padding: 1rem 0;
+}
+.question__answer--body p {
+  font-size: 0.9rem;
+  text-align: justify;
+}
+.question__answer--footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.bsTrash {
+  color: var(--red);
+  height: 100%;
+  text-align: center;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.bsTrash:active {
+  transform: scale(0.9);
 }
