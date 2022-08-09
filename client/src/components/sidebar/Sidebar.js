@@ -41,7 +41,9 @@ const Sidebar = ({ user }) => {
           </>
         ) : (
           <>
-            <button onClick={() => navigate('/profile')}>Profile</button>
+            <button onClick={() => navigate(`/profile/${user.id}`)}>
+              Profile
+            </button>
             <button onClick={handleLogout}>Logout</button>
           </>
         )}

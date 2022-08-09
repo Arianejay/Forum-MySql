@@ -8,12 +8,14 @@ const {
   GetQuestionById,
   DeleteQuestion,
   UpdateQuestion,
+  GetQuestionByUser,
 } = require('../controllers/Posts.js')
 
 // Routers
 router.post('/', PostQuestion)
 router.get('/', GetQuestion)
 router.get('/:id', GetQuestionById)
+router.get('/user/:id', GetQuestionByUser)
 router.delete('/:id', DeleteQuestion)
 router.put('/:id', UpdateQuestion)
 

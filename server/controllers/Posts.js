@@ -40,6 +40,16 @@ const GetQuestionById = async (req, res) => {
   }
 }
 
+const GetQuestionByUser = async (req, res) => {
+  const id = req.params.id //UserId
+  try {
+    const userPost = await Posts.findAll({ where: { UserId: id } })
+    return res.send(userPost)
+  } catch (err) {
+    return res.send(err)
+  }
+}
+
 const DeleteQuestion =
   (validateToken,
   async (req, res) => {
@@ -69,6 +79,7 @@ module.exports = {
   PostQuestion,
   GetQuestion,
   GetQuestionById,
+  GetQuestionByUser,
   DeleteQuestion,
   UpdateQuestion,
 }

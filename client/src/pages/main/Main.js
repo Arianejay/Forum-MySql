@@ -22,7 +22,7 @@ const Main = ({ user }) => {
         <Route path="/ask" element={<Ask user={user} />} exact />
         <Route path="/question/:id" element={<Question user={user} />} exact />
         <Route path="/edit/:id" element={<Edit />} exact />
-        <Route path="/profile" element={<Profile user={user} />} exact />
+        <Route path="/profile/:id" element={<Profile user={user} />} exact />
       </Routes>
     </div>
   )

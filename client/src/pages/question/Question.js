@@ -59,6 +59,7 @@ const Question = ({ user }) => {
           commentText: comment,
           PostId: id,
           username: user.username,
+          UserId: user.id,
         },
         {
           cookies: { accessToken: cookies.get('access-token') },

@@ -29,6 +29,16 @@ const GetComment = async (req, res) => {
   }
 }
 
+const GetCommentByUser = async (req, res) => {
+  const id = req.params.id
+  try {
+    const userComment = await Comments.findAll({ where: { UserId: id } })
+    return res.send(userComment)
+  } catch (err) {
+    return res.send(err)
+  }
+}
+
 const DeleteComment =
   (validateToken,
   async (req, res) => {
@@ -41,4 +51,4 @@ const DeleteComment =
     }
   })
 
-module.exports = { PostComment, GetComment, DeleteComment }
+module.exports = { PostComment, GetComment, DeleteComment, GetCommentByUser }
