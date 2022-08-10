@@ -149,3 +149,12 @@
 .question__comment--wrapper button:active {
   transform: scale(0.97);
 }
+
+/* Media Queries */
+@media screen and (min-width: 280px) and (max-width: 767px) {
+  /* Wrapper */
+  .question__wrapper {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+}

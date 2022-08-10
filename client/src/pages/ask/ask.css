@@ -67,3 +67,16 @@
 .ask__button button:active {
   transform: scale(0.97);
 }
+
+/* Media Queries */
+@media screen and (min-width: 280px) and (max-width: 768px) {
+  /* Wrapper */
+  .ask__wrapper {
+    padding: 0 1rem;
+  }
+
+  /* Input */
+  .ask__input input {
+    width: 80%;
+  }
+}

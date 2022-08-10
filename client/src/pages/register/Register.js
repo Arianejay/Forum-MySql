@@ -32,91 +32,93 @@ const Register = ({ user }) => {
 
   return (
     <div className="register__wrapper">
-      <div className="register__form">
-        {/* Logo -- Header */}
-        <div className="register__header">
-          Ask it!
-          <p>Register</p>
+      <div className="register__form--wrapper">
+        <div className="register__form">
+          {/* Logo -- Header */}
+          <div className="register__header">
+            Ask it!
+            <p>Register</p>
+          </div>
+
+          <div className="register__content">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              {/* Inputs */}
+              <Form className="register__input--wrapper">
+                <Field
+                  autoComplete="off"
+                  name="username"
+                  placeholder="Username..."
+                  className="register__input"
+                />
+                <ErrorMessage
+                  className="register__error"
+                  name="username"
+                  component="span"
+                />
+                <Field
+                  autoComplete="off"
+                  type="password"
+                  name="password"
+                  placeholder="Password..."
+                  className="register__input"
+                />
+                <ErrorMessage
+                  className="register__error"
+                  name="password"
+                  component="span"
+                />
+
+                {/* If there is error */}
+                {error && (
+                  <span
+                    style={{
+                      fontSize: '0.9rem',
+                      marginTop: '0.3rem',
+                      color: '#ff869e',
+                    }}
+                  >
+                    User already taken.
+                  </span>
+                )}
+                {error === false && (
+                  <span
+                    style={{
+                      fontSize: '0.9rem',
+                      marginTop: '0.3rem',
+                      color: '#5BB318',
+                    }}
+                  >
+                    Registration successful.{' '}
+                    <Link to="/login" className="link">
+                      Log in.
+                    </Link>
+                  </span>
+                )}
+
+                {/* Button */}
+                <button className="register__button" type="submit">
+                  Register
+                </button>
+              </Form>
+            </Formik>
+          </div>
         </div>
 
-        <div className="register__content">
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {/* Inputs */}
-            <Form className="register__input--wrapper">
-              <Field
-                autoComplete="off"
-                name="username"
-                placeholder="Username..."
-                className="register__input"
-              />
-              <ErrorMessage
-                className="register__error"
-                name="username"
-                component="span"
-              />
-              <Field
-                autoComplete="off"
-                type="password"
-                name="password"
-                placeholder="Password..."
-                className="register__input"
-              />
-              <ErrorMessage
-                className="register__error"
-                name="password"
-                component="span"
-              />
-
-              {/* If there is error */}
-              {error && (
-                <span
-                  style={{
-                    fontSize: '0.9rem',
-                    marginTop: '0.3rem',
-                    color: '#ff869e',
-                  }}
-                >
-                  User already taken.
-                </span>
-              )}
-              {error === false && (
-                <span
-                  style={{
-                    fontSize: '0.9rem',
-                    marginTop: '0.3rem',
-                    color: '#5BB318',
-                  }}
-                >
-                  Registration successful.{' '}
-                  <Link to="/login" className="link">
-                    Log in.
-                  </Link>
-                </span>
-              )}
-
-              {/* Button */}
-              <button className="register__button" type="submit">
-                Register
-              </button>
-            </Form>
-          </Formik>
+        {/* Log in Link */}
+        <div className="register__link--login">
+          <h1>
+            Already have an account? {''}
+            <span>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+            </span>
+          </h1>
         </div>
-      </div>
-
-      {/* Log in Link */}
-      <div className="register__link--login">
-        <h1>
-          Already have an account? {''}
-          <span>
-            <Link to="/login" className="link">
-              Sign in
-            </Link>
-          </span>
-        </h1>
       </div>
     </div>
   )

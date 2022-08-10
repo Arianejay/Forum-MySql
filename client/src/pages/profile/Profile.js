@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './profile.css'
 import { BsTrash } from 'react-icons/bs'
 import { FiEdit } from 'react-icons/fi'
-import {GoLinkExternal} from "react-icons/go"
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
@@ -60,9 +59,21 @@ const Profile = ({ user }) => {
   //Delete Comment
   const handleDeleteComment = async (postId) => {
     try {
-      await axios.delete(`http://localhost:3001/comment/${postId}`, {
-        cookies: { accessToken: cookies.get('access-token') },
-      })
+      await axios
+        .delete(`http://localhost:3001/comment/${postId}`, {
+          cookies: { accessToken: cookies.get('access-token') },
+        })
+        .then((response) =>
+          toast.success(response.data, {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }),
+        )
     } catch (err) {
       console.log(err)
     }
@@ -148,11 +159,12 @@ const Profile = ({ user }) => {
           {listComment.map(
             (item) =>
               activeTab === 'Comments' && (
-                <div
-                  className="question__answer--card"
-                  key={item.id}
-                >
-                  <div className="question__answer--body">
+                <div className="question__answer--card" key={item.id}>
+                  <div
+                    className="question__answer--body"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => navigate(`/question/${item.PostId}`)}
+                  >
                     <p>{item.commentText}</p>
                   </div>
                   <div className="question__answer--footer">
@@ -167,9 +179,6 @@ const Profile = ({ user }) => {
                       onClick={() => handleDeleteComment(item.id)}
                     >
                       <BsTrash />
-                    </div>
-                    <div className="goTo" onClick={() => navigate(`/question/${item.PostId}`)}>
-                      <GoLinkExternal />
                     </div>
                   </div>
                 </div>

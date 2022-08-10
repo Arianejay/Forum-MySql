@@ -23,3 +23,11 @@
   text-align: justify;
   margin-bottom: 2rem;
 }
+
+/* Media Queries */
+@media screen and (min-width: 280px) and (max-width: 768px) {
+  /* Wrapper */
+  .about__wrapper {
+    padding: 0 1rem;
+  }
+}

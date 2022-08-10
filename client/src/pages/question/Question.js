@@ -12,7 +12,7 @@ const Question = ({ user }) => {
   const [comment, setComment] = useState('')
   const [listComments, setListComments] = useState([])
   const [listLikes, setListLikes] = useState([])
-  // const [like, setLike] = useState(false)
+  const [like, setLike] = useState(false)
 
   //We get the length of comments list
   const commentLength = listComments.length
@@ -41,14 +41,14 @@ const Question = ({ user }) => {
     })
 
     //Get Likes by UserId
-    // axios.get(`http://localhost:3001/like/user/${user.id}`).then((response) => {
-    //   if (response.data.length !== 0) {
-    //     setLike(true)
-    //   } else {
-    //     setLike(false)
-    //   }
-    // })
-  }, [objectQuestion, listComments])
+    axios.get(`http://localhost:3001/like/user/${user.id}`).then((response) => {
+      if (response.data[response.data.length - 1].PostId === Number(id)) {
+        setLike(true)
+      } else {
+        setLike(false)
+      }
+    })
+  }, [objectQuestion, listComments, listLikes, like])
 
   // Send Comment value to the backend
   const handleSubmitComment = async () => {
@@ -122,7 +122,7 @@ const Question = ({ user }) => {
         <div className="question__body--icon">
           <BiUpvote
             className="biUpvote"
-            // style={like ? { color: '#5bb318' } : { color: '#1b2430' }}
+            style={like ? { color: '#5bb318' } : { color: '#1b2430' }}
             onClick={handleUpvotePost}
           />
           <p>{listLikes.length}</p>

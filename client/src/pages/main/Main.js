@@ -17,12 +17,20 @@ const Main = ({ user }) => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home user={user} />} exact />
         <Route path="/about" element={<About />} exact />
-        <Route path="/login" element={<Login />} exact />
-        <Route path="/register" element={<Register />} exact />
+        <Route path="/login" element={user ? <Home /> : <Login />} exact />
+        <Route
+          path="/register"
+          element={user ? <Home /> : <Register />}
+          exact
+        />
         <Route path="/ask" element={<Ask user={user} />} exact />
         <Route path="/question/:id" element={<Question user={user} />} exact />
-        <Route path="/edit/:id" element={<Edit />} exact />
-        <Route path="/profile/:id" element={<Profile user={user} />} exact />
+        <Route path="/edit/:id" element={user ? <Edit /> : <Login />} exact />
+        <Route
+          path="/profile/:id"
+          element={user ? <Profile user={user} /> : <Login />}
+          exact
+        />
       </Routes>
     </div>
   )
