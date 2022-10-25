@@ -19,7 +19,8 @@ Ask It is a Forum CRUD app, built with React Js and MySQL as its database.
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+ <img src="https://user-images.githubusercontent.com/103638111/197777298-21115275-d314-491f-bcde-5aaadac76601.png" alt="screenshot" />
+  <img src="https://user-images.githubusercontent.com/103638111/197777035-034ca4a2-5f89-472c-be3a-4e5b166cef67.png" alt="screenshot" />
 </div>
 
 
