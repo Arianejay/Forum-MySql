@@ -21,6 +21,7 @@ Ask It is a Forum CRUD app, built with React Js and MySQL as its database.
 <div align="center"> 
  <img src="https://user-images.githubusercontent.com/103638111/197777298-21115275-d314-491f-bcde-5aaadac76601.png" alt="screenshot" />
   <img src="https://user-images.githubusercontent.com/103638111/197777035-034ca4a2-5f89-472c-be3a-4e5b166cef67.png" alt="screenshot" />
+  <img src= "https://user-images.githubusercontent.com/103638111/198032202-4bdaab8f-1f25-4d40-9de6-87684ae89f87.png" alt="screenshot" />
 </div>
 
 
